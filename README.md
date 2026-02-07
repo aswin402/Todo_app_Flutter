@@ -250,3 +250,19 @@ Good alternatives:
 * flutter_bloc’s BlocObserver (if using BLoC)
 
 
+## dev setup
+
+1. Themes
+
+create dir themes/app_theme.dart
+
+then use flex_color_scheme and paste the codes from [flex_color_scheme](https://pub.dev/packages/flex_color_scheme) theme playground
+
+2. Logger
+
+create dir utils/app_logger.dart for more info visit [logger](https://pub.dev/packages/logger)
+
+then use logger for logs
+
+
+
