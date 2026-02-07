@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:todo_app/pages/home_page/home_page.dart';
+import 'package:todo_app/pages/home/home_page.dart';
 import 'package:todo_app/themes/app_theme.dart';
 
 void main() => runApp(const MyApp());
