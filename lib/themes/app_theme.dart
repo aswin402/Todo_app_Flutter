@@ -1,26 +1,12 @@
 import 'package:flex_color_scheme/flex_color_scheme.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-/// The [AppTheme] defines light and dark themes for the app.
-///
-/// Theme setup for FlexColorScheme package v8.
-/// Use same major flex_color_scheme package version. If you use a
-/// lower minor version, some properties may not be supported.
-/// In that case, remove them after copying this theme to your
-/// app or upgrade the package to version 8.4.0.
-///
-/// Use it in a [MaterialApp] like this:
-///
-/// MaterialApp(
-///   theme: AppTheme.light,
-///   darkTheme: AppTheme.dark,
-/// );
+
 abstract final class AppTheme {
-  // The FlexColorScheme defined light mode ThemeData.
   static ThemeData light = FlexThemeData.light(
-    // Using FlexColorScheme built-in FlexScheme enum based colors
     scheme: FlexScheme.shadStone,
-    // Component theme configurations for light mode.
+    surfaceMode: FlexSurfaceMode.levelSurfacesLowScaffold,
+    blendLevel: 7,
     subThemesData: const FlexSubThemesData(
       interactionEffects: true,
       tintedDisabledControls: true,
@@ -29,17 +15,22 @@ abstract final class AppTheme {
       inputDecoratorBorderType: FlexInputBorderType.outline,
       alignedDropdown: true,
       navigationRailUseIndicator: true,
+      cardRadius: 20,
+      inputDecoratorRadius: 12,
+      fabRadius: 16,
+      elevatedButtonRadius: 16,
+      // Refined sub themes
+      appBarBackgroundSchemeColor: SchemeColor.primaryContainer,
     ),
-    // Direct ThemeData properties.
     visualDensity: FlexColorScheme.comfortablePlatformDensity,
+    useMaterial3: true,
     cupertinoOverrideTheme: const CupertinoThemeData(applyThemeToAll: true),
   );
 
-  // The FlexColorScheme defined dark mode ThemeData.
   static ThemeData dark = FlexThemeData.dark(
-    // Using FlexColorScheme built-in FlexScheme enum based colors.
     scheme: FlexScheme.shadStone,
-    // Component theme configurations for dark mode.
+    surfaceMode: FlexSurfaceMode.levelSurfacesLowScaffold,
+    blendLevel: 13,
     subThemesData: const FlexSubThemesData(
       interactionEffects: true,
       tintedDisabledControls: true,
@@ -49,9 +40,13 @@ abstract final class AppTheme {
       inputDecoratorBorderType: FlexInputBorderType.outline,
       alignedDropdown: true,
       navigationRailUseIndicator: true,
+      cardRadius: 20,
+      inputDecoratorRadius: 12,
+      fabRadius: 16,
+      elevatedButtonRadius: 16,
     ),
-    // Direct ThemeData properties.
     visualDensity: FlexColorScheme.comfortablePlatformDensity,
+    useMaterial3: true,
     cupertinoOverrideTheme: const CupertinoThemeData(applyThemeToAll: true),
   );
 }

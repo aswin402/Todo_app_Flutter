@@ -17,42 +17,45 @@ class AppNavbar extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return VStack([
-      HStack([
-        
-        /// MENU BUTTON
-        Icon(Icons.menu)
-            .p8()
-            .onTap(onMenuTap),
-            
-            
-        /// TITLE
-        HStack([
-          title.text.xl.bold.center.make(),
-        ]).expand(),
-        /// THEME TOGGLE
-        Icon(
-          isDark ? Icons.dark_mode : Icons.light_mode,
-          size: 20,
-        )
-            .p8()
-            .box
-            .roundedLg
-            .color(context.cardColor)
-            .make()
-            .onTap(onThemeToggle),
-
-        8.widthBox,
-
-      ])
-          .p16()
-          .box
-          .height(160)
-          .roundedLg
-          .border()
-          .color(context.canvasColor)
-          .make()
-          .pOnly(top: 32, left: 16, right: 16),
-    ]);
+    return Container(
+      padding: const EdgeInsets.symmetric(horizontal: 20, vertical: 10),
+      decoration: BoxDecoration(
+        color: context.canvasColor,
+        borderRadius: const BorderRadius.only(
+          bottomLeft: Radius.circular(30),
+          bottomRight: Radius.circular(30),
+        ),
+        boxShadow: [
+          BoxShadow(
+            color: Colors.black.withValues(alpha: 0.05),
+            blurRadius: 10,
+            offset: const Offset(0, 5),
+          ),
+        ],
+      ),
+      child: Column(
+        children: [
+          const SizedBox(height: 10),
+          Row(
+            mainAxisAlignment: MainAxisAlignment.spaceBetween,
+            children: [
+              IconButton(
+                onPressed: onMenuTap,
+                icon: const Icon(Icons.menu_rounded, size: 28),
+              ),
+              title.text.xl2.bold.make(),
+              IconButton(
+                onPressed: onThemeToggle,
+                icon: Icon(
+                  isDark ? Icons.light_mode_rounded : Icons.dark_mode_rounded,
+                  size: 24,
+                ),
+              ).box.roundedFull.color(context.cardColor).make(),
+            ],
+          ),
+          const SizedBox(height: 10),
+        ],
+      ),
+    );
   }
 }
